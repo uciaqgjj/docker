@@ -6,7 +6,7 @@ services:
     ports: 
       - 3306:3306
     volumes: 
-      - f:/tmp/epo-data:/var/lib/mysql
+      - d:/docker/tmp/mysql:/var/lib/mysql
       - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
     environment: 
-      MYSQL_ROOT_PASSWORD: Root@2016
+      MYSQL_ROOT_PASSWORD: Root@2019
