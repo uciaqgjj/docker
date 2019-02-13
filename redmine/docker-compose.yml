@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+
+  redmine:
+    image: redmine
+    restart: always
+    ports:
+      - 8080:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: Root@2019
+
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes: 
+      - d:/docker/tmp/mysql:/var/lib/mysql
+      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+    ports: 
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: Root@2019
+      MYSQL_DATABASE: redmine
