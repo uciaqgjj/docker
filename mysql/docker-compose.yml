@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  mysql:
+    image: mysql:latest
+    ports: 
+      - 3306:3306
+    volumes: 
+      - f:/tmp/epo-data:/var/lib/mysql
+      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+    environment: 
+      MYSQL_ROOT_PASSWORD: Root@2016

@@ -1,0 +1,1 @@
+docker run --name epo-mysql -p 3306:3306 -v f:/tmp/epo-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Root@2016 -d mysql:latest
