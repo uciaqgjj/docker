@@ -1,0 +1,8 @@
+version: "3"
+services: 
+  kibana:
+    image: kibana:5.6.9
+    environment: 
+      - ELASTICSEARCH_URL=http://es1:9200
+    ports: 
+      - 5601

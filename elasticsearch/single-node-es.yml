@@ -1,0 +1,27 @@
+version: "3"
+services: 
+  es:
+    image: elasticsearch:5.6.14-alpine
+    environment: 
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - "discovery.type=single-node"
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - F:/elasticsearch/pkg/5.6.14/plugins:/usr/share/elasticsearch/plugins
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports: 
+      - 9200:9200
+      - 9300:9300
+  kibana:
+    image: kibana:5.6.14
+    environment: 
+      - ELASTICSEARCH_URL=http://es:9200
+    ports: 
+      - 5601:5601
+  es-head: 
+    image: mobz/elasticsearch-head:5-alpine
+    ports: 
+      - 9100:9100
