@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+
+  redmine:
+    image: redmine
+    restart: always
+    ports:
+      - 3100:3000
+    environment:
+      REDMINE_DB_MYSQL: 172.18.89.14
+      REDMINE_DB_PASSWORD: Founder123
+      TZ: Asia/Shanghai
