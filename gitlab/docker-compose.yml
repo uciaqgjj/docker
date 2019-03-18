@@ -3,5 +3,19 @@ version: '3.1'
 services:
   gitlab:
     image: gitlab/gitlab-ce:latest
+    hostname: 'gitlab.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.example.com:9080'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
     ports:
-      - 9080:80
+      - '9080:9080'
+      - '2224:22'
+
+  jenkins:
+    image: jenkins/jenkins:latest
+    hostname: 'jenkins.example.com'
+    ports:
+      - '9090:8080'
+    volumes: 
+      - 'f:/jenkins/tmp/jenkins_home:/var/jenkins_home'
