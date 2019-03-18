@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:latest
+    hostname: 'jenkins.example.com'
+    ports:
+      - '9090:8080'
+    volumes: 
+      - 'f:/jenkins/tmp/jenkins_home:/var/jenkins_home'
