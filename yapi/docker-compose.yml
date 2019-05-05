@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  redmine:
+    image: registry.cn-hangzhou.aliyuncs.com/anoy/yapi
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config.json:/api/
+
+  mongo:
+    image: mongo
+    restart: always
+    ports: 
+      - 27017:27017
+    command: --smallfiles
