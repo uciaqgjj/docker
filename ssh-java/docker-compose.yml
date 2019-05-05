@@ -1,0 +1,7 @@
+version: "3"
+services: 
+  centos-ssh-java:
+    build: 
+      context: .
+    ports: 
+      - "22:22"
