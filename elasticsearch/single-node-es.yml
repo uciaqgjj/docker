@@ -25,3 +25,7 @@ services:
     image: mobz/elasticsearch-head:5-alpine
     ports: 
       - 9100:9100
+  es-cerebro:
+    image: lmenezes/cerebro
+    ports:
+      - 9101:9000
